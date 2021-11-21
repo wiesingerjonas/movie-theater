@@ -23,4 +23,5 @@ public enum Genre {
     HISTORY,
     MUSICAL,
     SPORT,
+    PORN,
 }
