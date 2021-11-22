@@ -4,6 +4,12 @@ import javax.persistence.*;
 
 @Entity(name = "MT_SHOW")
 @SequenceGenerator(name = "showSeq",initialValue = 1000)
+@NamedQueries({
+        @NamedQuery(
+                name = "Show.findLastShow",
+                query = "select s from MT_SHOW s order by s.id desc"
+        )
+})
 public class Show {
 
     @Id
@@ -21,9 +27,9 @@ public class Show {
 
     @JoinColumn(name = "SH_PREV_SHOW_ID")
     @OneToOne
-    private Show prevShow;
 
     @JoinColumn(name = "SH_NEXT_SHOW_ID")
+    private at.htl.movietheater.entity.Show prevShow;
     @OneToOne
     private Show nextShow;
 
